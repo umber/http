@@ -25,7 +25,8 @@
   },
 
   "suggest": {
-    "umber/database": "For paginated responses"
+    "umber/database": "For paginated responses",
+    "umber/reducer": "For reducing data structures for responses"
   },
 
   "extra": {

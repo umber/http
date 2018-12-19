@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Umber\Http;
 
-use Umber\Common\Serializer\SerializerInterface;
-
 use Umber\Database\Pagination\PaginatorInterface;
 use Umber\Http\Factory\HttpFactoryInterface;
+use Umber\Http\Serializer\ResponseSerializerInterface;
 
 use Symfony\Component\HttpFoundation\Response;
 
@@ -20,7 +19,7 @@ class HttpResponseGenerator
     private $serializer;
     private $type;
 
-    public function __construct(HttpFactoryInterface $factory, SerializerInterface $serializer, string $type)
+    public function __construct(HttpFactoryInterface $factory, ResponseSerializerInterface $serializer, string $type)
     {
         $this->factory = $factory;
         $this->serializer = $serializer;

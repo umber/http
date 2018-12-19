@@ -1,6 +1,6 @@
 {
   "name": "umber/http",
-  "description": "A series of helper HTTP classes.",
+  "description": "A series of helper HTTP classes and implementation.",
   "type": "library",
   "license": "MIT",
 
@@ -22,6 +22,10 @@
     "psr-4": {
       "Umber\\Http\\Tests\\": "tests/Umber/Http/Tests"
     }
+  },
+
+  "suggest": {
+    "umber/database": "For paginated responses"
   },
 
   "extra": {

@@ -1,0 +1,41 @@
+{
+  "name": "umber/http",
+  "description": "A series of helper HTTP classes.",
+  "type": "library",
+  "license": "MIT",
+
+  "require": {
+    "php": ">=7.1"
+  },
+
+  "require-dev": {
+    "phpunit/phpunit": "^7.0"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "Umber\\Http\\": "src/Umber/Http"
+    }
+  },
+
+  "autoload-dev": {
+    "psr-4": {
+      "Umber\\Http\\Tests\\": "tests/Umber/Http/Tests"
+    }
+  },
+
+  "extra": {
+    "branch-alias": {
+      "dev-develop": "0.1-dev"
+    }
+  },
+
+  "archive": {
+    "exclude": [
+      "!vendor",
+      "*phpunit.xml",
+      ".travis.yml",
+      "tests"
+    ]
+  }
+}

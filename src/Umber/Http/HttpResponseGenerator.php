@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Umber\Http;
 
+use Umber\Common\Serializer\SerializerInterface;
+
 use Umber\Database\Pagination\PaginatorInterface;
 use Umber\Http\Factory\HttpFactoryInterface;
-use Umber\Common\Serializer\SerializerInterface;
 
 use Symfony\Component\HttpFoundation\Response;
 

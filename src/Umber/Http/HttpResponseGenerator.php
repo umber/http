@@ -5,24 +5,20 @@ declare(strict_types=1);
 namespace Umber\Http;
 
 use Umber\Database\Pagination\PaginatorInterface;
-use Umber\Http\Factory\HttpFactoryInterface;
-use Umber\Http\Serializer\ResponseSerializerInterface;
 
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * A helper for generating common HTTP responses.
  */
-class HttpResponseGenerator
+/* final */class HttpResponseGenerator
 {
-    private $factory;
-    private $serializer;
+    private $composer;
     private $type;
 
-    public function __construct(HttpFactoryInterface $factory, ResponseSerializerInterface $serializer, string $type)
+    public function __construct(HttpResponseComposer $composer, string $type)
     {
-        $this->factory = $factory;
-        $this->serializer = $serializer;
+        $this->composer = $composer;
         $this->type = $type;
     }
 
@@ -34,25 +30,7 @@ class HttpResponseGenerator
      */
     public function generate(int $status, $data, array $groups): HttpResponseInterface
     {
-        $paginator = $data;
-
-        if ($paginator instanceof PaginatorInterface) {
-            $data = $paginator->asArray();
-        }
-
-        // Only serialise when data is not null.
-        // 204 NO CONTENT requests will have a null data.
-        if ($data !== null) {
-            $data = $this->serializer->serialize($data, $groups);
-        }
-
-        $response = $this->factory->create($this->type, $status, $data);
-
-        if ($paginator instanceof PaginatorInterface) {
-            $response->setPaginator($paginator);
-        }
-
-        return $response;
+        return $this->composer->compose($this->type, $status, $data, $groups);
     }
 
     /**
@@ -72,5 +50,27 @@ class HttpResponseGenerator
     public function noContent(): HttpResponseInterface
     {
         return $this->generate(Response::HTTP_NO_CONTENT, null, []);
+    }
+
+    /**
+     * Generate a 400 BAD REQUEST.
+     *
+     * @param mixed|mixed[]|PaginatorInterface $data
+     * @param string[] $groups
+     */
+    public function badRequest($data, array $groups = []): HttpResponseInterface
+    {
+        return $this->generate(Response::HTTP_BAD_REQUEST, $data, $groups);
+    }
+
+    /**
+     * Generate a 404 NOT FOUND.
+     *
+     * @param mixed|mixed[]|PaginatorInterface $data
+     * @param string[] $groups
+     */
+    public function notFound($data, array $groups = []): HttpResponseInterface
+    {
+        return $this->generate(Response::HTTP_NOT_FOUND, $data, $groups);
     }
 }

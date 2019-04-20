@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Umber\Http\Enum;
 
+/**
+ * HTTP Headers.
+ */
 final class HttpHeaderEnum
 {
     public const ORIGIN = 'Origin';

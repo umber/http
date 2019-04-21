@@ -6,6 +6,14 @@ A series of light weight abstractions around crafting HTTP responses.
 |---|---|
 |[![Build Status](https://travis-ci.com/umber/http.svg?branch=master)](https://travis-ci.com/umber/http)|[![Build Status](https://travis-ci.com/umber/http.svg?branch=develop)](https://travis-ci.com/umber/http)
 
+## Installation
+
+The package can be installed through composer through [Packagist](https://packagist.org/packages/umber/http):
+
+* `composer require umber/http`
+
+Please anchor the version to `2.x` as version `1.x` is not supported anymore.
+
 ## Usage
 
 A HTTP response is represented by an implementation of `HttpResponseInterface`.

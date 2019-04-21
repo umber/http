@@ -41,7 +41,9 @@ final class JsonHttpResponse implements
     }
 
     /**
-     * {@inheritdoc}
+     * Return the response data.
+     *
+     * @return mixed
      */
     public function getData()
     {

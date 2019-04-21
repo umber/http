@@ -39,7 +39,7 @@ final class HttpResponse implements
     /**
      * {@inheritdoc}
      */
-    public function getData()
+    public function getData(): string
     {
         return $this->body;
     }

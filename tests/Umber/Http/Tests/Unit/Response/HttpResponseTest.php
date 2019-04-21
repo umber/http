@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Response;
 
-use PHPUnit\Framework\TestCase;
 use Umber\Http\Enum\HttpStatusEnum;
 use Umber\Http\Response\HttpResponse;
+
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

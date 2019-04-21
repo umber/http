@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Header\Collection;
 
-use PHPUnit\Framework\TestCase;
 use Umber\Http\Exception\HttpHeaderNotFoundException;
-use Umber\Http\Header\HttpHeader;
 use Umber\Http\Header\Collection\HttpHeaderCollection;
+use Umber\Http\Header\HttpHeader;
+
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

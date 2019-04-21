@@ -1,13 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Serializer\Response;
 
-use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\TestCase;
 use Umber\Http\Enum\HttpStatusEnum;
 use Umber\Http\Response\Type\JsonHttpResponse;
 use Umber\Http\Serializer\HttpResponseSerializerInterface;
 use Umber\Http\Serializer\Response\SerializerHttpResponse;
+
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

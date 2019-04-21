@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Response\Type;
 
-use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\TestCase;
 use Umber\Http\Enum\HttpHeaderEnum;
 use Umber\Http\Enum\HttpStatusEnum;
 use Umber\Http\Exception\HttpHeaderNotFoundException;
 use Umber\Http\Pagination\PaginatorInterface;
-use Umber\Http\Response\Type\JsonHttpResponse;
 use Umber\Http\Response\Type\JsonPaginatorHttpResponse;
+
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

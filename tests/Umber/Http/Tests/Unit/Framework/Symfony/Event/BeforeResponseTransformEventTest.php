@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Framework\Symfony\Event;
+
+use Umber\Http\Framework\Symfony\Event\BeforeResponseTransformEvent;
+use Umber\Http\Response\HttpResponseInterface;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Umber\Http\Framework\Symfony\Event\BeforeResponseTransformEvent;
-use Umber\Http\Response\HttpResponseInterface;
 
 /**
  * @group unit

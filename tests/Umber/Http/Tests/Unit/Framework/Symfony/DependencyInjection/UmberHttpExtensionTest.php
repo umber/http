@@ -1,14 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Framework\Symfony\DependencyInjection;
+
+use Umber\Http\Framework\Symfony\DependencyInjection\UmberHttpExtension;
+
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Reference;
 
 use Exception;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Reference;
-use Umber\Http\Framework\Symfony\DependencyInjection\UmberHttpExtension;
 
 /**
  * @group unit
@@ -63,7 +67,7 @@ final class UmberHttpExtensionTest extends TestCase
         $configs = [
             [
                 'serializer' => null,
-            ]
+            ],
         ];
 
         /** @var ContainerBuilder|MockObject $container */
@@ -85,7 +89,7 @@ final class UmberHttpExtensionTest extends TestCase
         $configs = [
             [
                 'serializer' => 'some.serializer',
-            ]
+            ],
         ];
 
         /** @var Definition|MockObject $definition */

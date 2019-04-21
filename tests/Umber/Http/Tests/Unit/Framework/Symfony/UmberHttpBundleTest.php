@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Framework\Symfony;
 
-use PHPUnit\Framework\TestCase;
 use Umber\Http\Framework\Symfony\DependencyInjection\UmberHttpExtension;
 use Umber\Http\Framework\Symfony\UmberHttpBundle;
+
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

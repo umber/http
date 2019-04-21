@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Header\Factory;
 
-use PHPUnit\Framework\TestCase;
 use Umber\Http\Enum\HttpHeaderEnum;
 use Umber\Http\Header\Factory\HttpHeaderFactory;
+
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

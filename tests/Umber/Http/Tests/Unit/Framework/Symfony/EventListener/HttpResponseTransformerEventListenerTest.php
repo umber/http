@@ -1,18 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Framework\Symfony\EventListener;
 
-use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\TestCase;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Umber\Http\Enum\HttpStatusEnum;
 use Umber\Http\Framework\Symfony\Event\BeforeResponseTransformEvent;
 use Umber\Http\Framework\Symfony\EventListener\HttpResponseTransformerEventListener;
 use Umber\Http\Header\Collection\HttpHeaderCollection;
 use Umber\Http\Header\HttpHeader;
 use Umber\Http\Response\HttpResponseInterface;
+
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
+
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit
@@ -104,7 +108,7 @@ final class HttpResponseTransformerEventListenerTest extends TestCase
         $event->expects(self::once())
             ->method('setResponse')
             ->with(
-                $this->callback(function (Response $response) {
+                self::callback(static function (Response $response) {
                     self::assertEquals(HttpStatusEnum::OK, $response->getStatusCode());
                     self::assertEquals('foo', $response->getContent());
                     self::assertTrue($response->headers->has('Foo'));

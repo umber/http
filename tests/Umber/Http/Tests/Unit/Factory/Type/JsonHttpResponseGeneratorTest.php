@@ -1,20 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Factory\Type;
 
-use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\TestCase;
 use Umber\Http\Enum\HttpStatusEnum;
-use Umber\Http\Exception\Factory\HttpResponseContentTypeUnsupportedException;
 use Umber\Http\Factory\Type\JsonHttpResponseFactory;
 use Umber\Http\Factory\Type\JsonHttpResponseGenerator;
 use Umber\Http\Pagination\PaginatorInterface;
-use Umber\Http\Response\Hint\Type\JsonHttpResponseTypeInterface;
-use Umber\Http\Response\HttpResponse;
 use Umber\Http\Response\Type\JsonHttpResponse;
 use Umber\Http\Response\Type\JsonPaginatorHttpResponse;
 use Umber\Http\Serializer\HttpResponseSerializerInterface;
 use Umber\Http\Serializer\Response\SerializerHttpResponse;
+
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

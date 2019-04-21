@@ -31,19 +31,21 @@ code.fix: \
 
 code.format:
 	vendor/bin/php-formatter formatter:header:fix src --ansi --config="build/code/config"
+	vendor/bin/php-formatter formatter:header:fix tests --ansi --config="build/code/config"
 	vendor/bin/php-formatter formatter:use:sort src --ansi --config="build/code/config"
+	vendor/bin/php-formatter formatter:use:sort tests --ansi --config="build/code/config"
 
 code.sniff.report:
-	vendor/bin/phpcs --report=diff --report-full src
+	vendor/bin/phpcs --report=diff --report-full
 
 code.sniff.report.only.full:
-	vendor/bin/phpcs --report-full src
+	vendor/bin/phpcs --report-full
 
 code.sniff.report.only.diff:
-	vendor/bin/phpcs --report=diff src
+	vendor/bin/phpcs --report=diff
 
 code.sniff.fix:
-	vendor/bin/phpcbf src
+	vendor/bin/phpcbf
 
 code.phpstan:
 	vendor/bin/phpstan analyse -c phpstan.neon

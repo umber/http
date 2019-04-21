@@ -1,23 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Paginator;
 
-use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\TestCase;
 use Umber\Http\Enum\HttpHeaderEnum;
+use Umber\Http\Exception\HttpHeaderNotFoundException;
 use Umber\Http\Header\Collection\HttpHeaderCollection;
 use Umber\Http\Pagination\PaginatorInterface;
 use Umber\Http\Pagination\PaginatorResponseHelper;
 
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
+
 /**
  * @group unit
- * 
+ *
  * @covers \Umber\Http\Pagination\PaginatorResponseHelper
  */
 final class PaginatorResponseHelperTest extends TestCase
 {
     /**
      * @test
+     *
+     * @throws HttpHeaderNotFoundException
      */
     public function canApplyHeaders(): void
     {

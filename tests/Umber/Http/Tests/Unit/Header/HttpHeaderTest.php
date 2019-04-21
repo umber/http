@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Umber\Http\Tests\Unit\Header;
 
-use PHPUnit\Framework\TestCase;
 use Umber\Http\Header\HttpHeader;
+
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group unit

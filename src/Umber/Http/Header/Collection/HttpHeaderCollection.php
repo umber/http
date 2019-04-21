@@ -76,6 +76,23 @@ final class HttpHeaderCollection implements Countable
     }
 
     /**
+     * Return the header collection as a key-value array.
+     *
+     * @return string[]
+     */
+    public function toArray(): array
+    {
+        $headers = [];
+
+        foreach ($this->collection as $header) {
+            $name = $header->getName();
+            $headers[$name] = $header->getValue();
+        }
+
+        return $headers;
+    }
+
+    /**
      * Return the collection count.
      */
     public function count(): int

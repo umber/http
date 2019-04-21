@@ -1,0 +1,16 @@
+services:
+
+  umber.http.response.factory.json:
+    class: 'Umber\Http\Factory\Type\JsonHttpResponseFactory'
+
+  umber.http.response.generator.json:
+    class: 'Umber\Http\Factory\Type\JsonHttpResponseGenerator'
+    arguments:
+      - '@umber.http.response.factory.json'
+
+  umber.http.response.transformer:
+    class: 'Umber\Http\Framework\Symfony\EventListener\HttpResponseTransformerEventListener'
+    arguments:
+      - '@event_dispatcher'
+    tags:
+      - { name: kernel.event_listener, event: kernel.view }

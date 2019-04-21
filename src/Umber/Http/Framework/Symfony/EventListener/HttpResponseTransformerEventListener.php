@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Umber\Http\Framework\Symfony\EventListener;
 
-use Umber\Http\Framework\Symfony\Response\SymfonyHttpResponseTransformer;
+use Umber\Http\Framework\Symfony\Event\BeforeResponseTransformEvent;
 use Umber\Http\Response\HttpResponseInterface;
 
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 
 /**
@@ -15,12 +17,12 @@ use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
  */
 final class HttpResponseTransformerEventListener
 {
-    /** @var SymfonyHttpResponseTransformer */
-    private $transformer;
+    /** @var EventDispatcherInterface */
+    private $dispatcher;
 
-    public function __construct(SymfonyHttpResponseTransformer $transformer)
+    public function __construct(EventDispatcherInterface $dispatcher)
     {
-        $this->transformer = $transformer;
+        $this->dispatcher = $dispatcher;
     }
 
     /**
@@ -28,7 +30,7 @@ final class HttpResponseTransformerEventListener
      */
     public function onKernelView(GetResponseForControllerResultEvent $event): void
     {
-        if (!$event->isMasterRequest()) {
+        if ($event->isMasterRequest() === false) {
             return;
         }
 
@@ -38,7 +40,17 @@ final class HttpResponseTransformerEventListener
             return;
         }
 
-        $transformed = $this->transformer->transform($response, $event->getRequest());
+        $this->dispatcher->dispatch(
+            BeforeResponseTransformEvent::EVENT_NAME,
+            new BeforeResponseTransformEvent($response)
+        );
+
+        $transformed = new Response(
+            $response->getBody(),
+            $response->getStatusCode(),
+            $response->getHeaders()->toArray()
+        );
+
         $event->setResponse($transformed);
     }
 }

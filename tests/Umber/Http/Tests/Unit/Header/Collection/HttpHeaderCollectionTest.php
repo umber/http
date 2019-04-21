@@ -102,4 +102,23 @@ final class HttpHeaderCollectionTest extends TestCase
 
         self::fail(sprintf('Expected exception: %s', HttpHeaderNotFoundException::class));
     }
+
+    /**
+     * @test
+     */
+    public function canGetHeaderCollectionAsArray(): void
+    {
+        $collection = new HttpHeaderCollection();
+        $collection->add(HttpHeader::create('Foo', 'Bar'));
+        $collection->add(HttpHeader::create('Tony', 'Stark'));
+        $collection->add(HttpHeader::create('Hello', 'World'));
+
+        $expected = [
+            'Foo' => 'Bar',
+            'Tony' => 'Stark',
+            'Hello' => 'World',
+        ];
+
+        self::assertSame($expected, $collection->toArray());
+    }
 }

@@ -21,6 +21,8 @@ install:
   - travis_retry composer update --prefer-dist
 
 script:
+  - make code.sniff.report
+  - make code.phpstan
   - vendor/bin/phpunit -v
 
 cache:

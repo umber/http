@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2019-04-21
+
+- Better documentation addded to `README.md`
+- Classes in `tests` are now covered by code monitoring tools.
+
 ## [2.0.0] - 2019-04-21
 
 This repository is now no longer managed by the (private) mono repository and will now be handled independently.

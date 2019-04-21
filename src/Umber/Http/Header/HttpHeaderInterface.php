@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace Umber\Http\Header;
 
+use Umber\Http\Enum\HttpHeaderEnum;
+
 /**
- * A HTTP header representation.
+ * A basic HTTP header representation.
  */
 interface HttpHeaderInterface
 {
     /**
      * Return the header name.
+     *
+     * @see HttpHeaderEnum
      */
     public function getName(): string;
 
@@ -20,7 +24,7 @@ interface HttpHeaderInterface
     public function getValue(): string;
 
     /**
-     * Should the header be exposed through access control.
+     * Return the header as a string.
      */
-    public function isExposed(): bool;
+    public function toString(): string;
 }
